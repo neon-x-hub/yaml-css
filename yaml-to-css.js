@@ -2,7 +2,7 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 
 
-function yamlToScss(yamlObj, depth = 0) {
+export function yamlToScss(yamlObj, depth = 0) {
   let scss = '';
   const indent = '  '.repeat(depth);
 
