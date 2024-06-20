@@ -14,7 +14,7 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 2. Install the required dependency:
 
    ```bash
-   npm install js-yaml
+   npm install js-yaml json-to-css
    ```
 
 **Usage:**
@@ -75,7 +75,7 @@ button:
 
 **License:**
 
-(Choose an open-source license here. Popular options include MIT, Apache 2.0, or GPL. You can use a license chooser like [https://choosealicense.com/](https://choosealicense.com/) to help you decide.)
+MIT License
 
 **Contributing:**
 
