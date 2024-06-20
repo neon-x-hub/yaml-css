@@ -1,12 +1,13 @@
 ## YAML to CSS Converter with js-yaml (Public Repository)
 
-This is a public JavaScript project that converts YAML styles to CSS. It allows you to define styles in a user-friendly YAML format and generate the corresponding CSS code.
+This is a public JavaScript project that converts YAML styles to CSS. It allows you to define styles in a user-friendly YAML format and generate the corresponding CSS/SCSS code.
 
 **Features:**
 
 * Parses YAML files using the `js-yaml` library.
 * Converts the parsed YAML data to CSS styles based on a predefined structure.
 * Offers a command-line tool for easy conversion.
+* Offers an out-of-the-box SCSS support for nested styling.
 
 **Installation:**
 
@@ -14,7 +15,7 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 2. Install the required dependency:
 
    ```bash
-   npm install js-yaml json-to-css
+   npm install
    ```
 
 **Usage:**
@@ -27,7 +28,7 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
    ```
 
    - Replace `styles.yaml` with your actual file name.
-   - Replace `output.css` with your desired output file name for the generated CSS.
+   - Replace `output.scss` with your desired output file name for the generated CSS/SCSS.
 
 **Example YAML Structure:**
 
@@ -54,23 +55,23 @@ p:
 
 # Links
 a:
-  color: #007bff;
+  color: "#007bff";
   text-decoration: none;
 
-  &:hover:
+  "&:hover":
     color: #0056b3;
 
 # Buttons
 button:
-  background-color: #007bff;
+  background-color: "#007bff";
   color: white;
   padding: 0.5em 1em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
-  &:hover:
-    background-color: #0056b3;
+  "&:hover":
+    background-color: "#0056b3";
 ```
 
 **License:**
@@ -79,10 +80,6 @@ MIT License
 
 **Contributing:**
 
+This is my first public repository.
+
 We welcome contributions to this project! Feel free to fork the repository, make changes, and submit pull requests.
-
-This is a basic structure for your README file. You can further customize it by adding:
-
-* Screenshots or examples of usage.
-* Documentation for any additional features you implement.
-* Contribution guidelines for those interested in helping with the project.

@@ -1,45 +1,26 @@
-const fs = require('fs'); // File system module for reading and writing files
-const yaml = require('js-yaml'); // js-yaml library for YAML parsing
-const Css = require('json-to-css');
-const yamlFile = process.argv[2];
-const outputFile = process.argv[3];
-// Function to convert YAML to JSON
-function yamlToJson(yamlFilepath) {
-  try {
-    const yamlString = fs.readFileSync(yamlFilepath, 'utf8'); // Read YAML file
-    const jsonObject = yaml.load(yamlString); // Parse YAML into a JavaScript object
-    return JSON.stringify(jsonObject, null, 2); // Stringify JSON with indentation
-  } catch (error) {
-    console.error(`Error parsing YAML file: ${error}`);
-    return null;
+const yaml = require('js-yaml');
+const fs = require('fs');
+
+function yamlToScss(yamlObj, depth = 0) {
+  let scss = '';
+  const indent = '  '.repeat(depth);
+  for (const key in yamlObj) {
+    const value = yamlObj[key];
+    if (typeof value === 'object') {
+      scss += `${indent}${key} {\n${yamlToScss(value, depth + 1)}${indent}}\n`;
+    } else {
+      scss += `${indent}${key}: ${value};\n`;
+    }
   }
+  return scss;
 }
 
-// Function to convert JSON to CSS (assuming hypothetical json-to-css library)
-function jsonToCss(jsonString) {
-  try {
-    // Hypothetical usage of json-to-css library
-    const cssString = Css.of({...JSON.parse(jsonString)});
-    //console.log(cssString); // Replace with actual library call
-    return cssString;
-  } catch (error) {
-    console.error(`Error converting JSON to CSS: ${error}`);
-    return null;
-  }
-}
+// Load YAML file
+const yamlFile = fs.readFileSync(process.argv[2], 'utf8');
+const yamlObj = yaml.load(yamlFile);
 
-// Main function to process YAML file and output CSS
-function compileYamlToCss(yamlFilepath, outputFilepath) {
-  const jsonString = yamlToJson(yamlFilepath);
-  if (!jsonString) return; // Handle error if YAML parsing fails
+// Convert to CSS or SCSS
+const scssOutput = yamlToScss(yamlObj);
+fs.writeFileSync(process.argv[3], scssOutput);
 
-  const cssString = jsonToCss(jsonString);
-  if (!cssString) return; // Handle error if JSON to CSS conversion fails
-
-  fs.writeFileSync(outputFilepath, cssString,'utf8');
-  console.log(`Successfully compiled YAML to CSS and saved to ${outputFilepath}`);
-}
-
-// Example usage
-
-compileYamlToCss(yamlFile, outputFile);
+console.log('CSS and SCSS files generated successfully!');
