@@ -58,8 +58,7 @@ a:
   "&:hover":
     color: #0056b3;
 
-# Buttons
-button:
+.special:hover button:
   background-color: "#007bff";
   color: white;
   padding: 0.5em 1em;
