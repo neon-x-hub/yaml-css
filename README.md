@@ -56,7 +56,7 @@ a:
   text-decoration: none;
 
   "&:hover":
-    color: #0056b3;
+    color: "#0056b3";
 
 .special:hover button:
   background-color: "#007bff";
