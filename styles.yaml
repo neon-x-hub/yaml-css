@@ -1,3 +1,15 @@
+variables:
+  primary-color: '#3498db'
+  padding: '10px'
+
+mixins:
+  box:
+    padding: $padding
+    border: 1px solid $primary-color
+  chip:
+    padding: $padding
+    border-radius: 9999px
+
 
 body:
   font-family: Arial, sans-serif
@@ -37,3 +49,16 @@ button:
 
 .good:hover button:
   background-color: green
+  
+nav:
+  ul:
+    margin: 0
+    padding: 0
+    list-style: none
+    li:
+      display: inline-block
+      "@include": chip
+      a:
+        text-decoration: none
+        color: $primary-color
+        "@include": box
