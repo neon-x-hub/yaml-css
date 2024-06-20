@@ -16,7 +16,6 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 
    ```bash
    npm install
-   npm install
    ```
 
 **Usage:**
@@ -53,23 +52,22 @@ p:
   margin-bottom: 1em
 
 a:
-  color: "#007bff";
-  text-decoration: none;
+  color: "#007bff"
+  text-decoration: none
 
   "&:hover":
-    color: #0056b3;
+    color: "#0056b3"
 
-# Buttons
-button:
-  background-color: "#007bff";
-  color: white;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.special:hover button:
+  background-color: "#007bff"
+  color: white
+  padding: 0.5em 1em
+  border: none
+  border-radius: 4px
+  cursor: pointer
 
   "&:hover":
-    background-color: "#0056b3";
+    background-color: "#0056b3"
 ```
 
 **License:**
