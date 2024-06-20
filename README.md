@@ -82,8 +82,3 @@ MIT License
 This is my first public github repository.
 We welcome contributions to this project! Feel free to fork the repository, make changes, and submit pull requests.
 
-This is a basic structure for your README file. You can further customize it by adding:
-
-* Screenshots or examples of usage.
-* Documentation for any additional features you implement.
-* Contribution guidelines for those interested in helping with the project.
