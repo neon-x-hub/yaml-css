@@ -1,4 +1,4 @@
-## YAML to CSS Converter with js-yaml (Public Repository)
+## YAML to CSS Converter
 
 This is a public JavaScript project that converts YAML styles to CSS. It allows you to define styles in a user-friendly YAML format and generate the corresponding CSS/SCSS code.
 
@@ -12,9 +12,10 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 **Installation:**
 
 1. Clone this repository or download the zip file.
-2. Install the required dependency:
+2. Install the required dependencies:
 
    ```bash
+   npm install
    npm install
    ```
 
@@ -33,27 +34,24 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 **Example YAML Structure:**
 
 ```yaml
-# Global styles
-body:
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 
-# Headings
+body:
+  font-family: Arial, sans-serif
+  margin: 0
+  padding: 0
+
 h1:
-  font-size: 2em;
-  margin-bottom: 0.5em;
+  font-size: 2em
+  margin-bottom: 0.5em
 
 h2:
-  font-size: 1.5em;
-  margin-bottom: 0.3em;
+  font-size: 1.5em
+  margin-bottom: 0.3em
 
-# Paragraphs
 p:
-  line-height: 1.5;
-  margin-bottom: 1em;
+  line-height: 1.5
+  margin-bottom: 1em
 
-# Links
 a:
   color: "#007bff";
   text-decoration: none;
