@@ -7,7 +7,7 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 * Parses YAML files using the `js-yaml` library.
 * Converts the parsed YAML data to CSS styles based on a predefined structure.
 * Offers a command-line tool for easy conversion.
-* Offers an out-of-the-box SCSS support for nested styling.
+* Offers an out-of-the-box SCSS support for nested styling / Mixins / Variables.
 
 **Installation:**
 
@@ -34,6 +34,19 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 
 ```yaml
 
+variables:
+  primary-color: '#3498db'
+  padding: '10px'
+
+mixins:
+  box:
+    padding: $padding
+    border: 1px solid $primary-color
+  chip:
+    padding: $padding
+    border-radius: 9999px
+
+
 body:
   font-family: Arial, sans-serif
   margin: 0
@@ -56,9 +69,9 @@ a:
   text-decoration: none
 
   "&:hover":
-    color: "#0056b3"
+    text-decoration: underline
 
-.special:hover button:
+button:
   background-color: "#007bff"
   color: white
   padding: 0.5em 1em
@@ -66,8 +79,25 @@ a:
   border-radius: 4px
   cursor: pointer
 
-  "&:hover":
-    background-color: "#0056b3"
+.special:
+  color: red
+  font-weight: bold
+
+.good:hover button:
+  background-color: green
+  
+nav:
+  ul:
+    margin: 0
+    padding: 0
+    list-style: none
+    li:
+      display: inline-block
+      "@include": chip
+      a:
+        text-decoration: none
+        color: $primary-color
+        "@include": box
 ```
 
 **License:**
