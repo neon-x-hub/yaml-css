@@ -16,7 +16,6 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 
    ```bash
    npm install
-   npm install
    ```
 
 **Usage:**
