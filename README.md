@@ -24,11 +24,11 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 2. **Run the script:** Execute the script using Node.js from the command line:
 
    ```bash
-   node yaml-to-css.js styles.yaml output.css
+   node yaml-to-css.js styles.yaml styles.scss
    ```
 
    - Replace `styles.yaml` with your actual file name.
-   - Replace `output.scss` with your desired output file name for the generated CSS/SCSS.
+   - Replace `styles.scss` with your desired output file name for the generated CSS/SCSS.
 
 **Example YAML Structure:**
 
