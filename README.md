@@ -7,7 +7,7 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 * Parses YAML files using the `js-yaml` library.
 * Converts the parsed YAML data to CSS styles based on a predefined structure.
 * Offers a command-line tool for easy conversion.
-* Offers an out-of-the-box SCSS support for nested styling / Mixins / Variables.
+* Offers an out-of-the-box SCSS support for nested styling /Mixins/Variables/Functions/Inheretance/Loops/Conditions .
 
 **Installation:**
 
