@@ -1,6 +1,6 @@
 const fs = require('fs'); // File system module for reading and writing files
 const yaml = require('js-yaml'); // js-yaml library for YAML parsing
-const Css = require('json-to-css');
+const Css = require('json-to-css'); // json-to-css for conversion
 const yamlFile = process.argv[2];
 const outputFile = process.argv[3];
 // Function to convert YAML to JSON
@@ -15,12 +15,10 @@ function yamlToJson(yamlFilepath) {
   }
 }
 
-// Function to convert JSON to CSS (assuming hypothetical json-to-css library)
+// Function to convert JSON to CSS
 function jsonToCss(jsonString) {
   try {
-    // Hypothetical usage of json-to-css library
     const cssString = Css.of({...JSON.parse(jsonString)});
-    //console.log(cssString); // Replace with actual library call
     return cssString;
   } catch (error) {
     console.error(`Error converting JSON to CSS: ${error}`);
@@ -39,7 +37,5 @@ function compileYamlToCss(yamlFilepath, outputFilepath) {
   fs.writeFileSync(outputFilepath, cssString,'utf8');
   console.log(`Successfully compiled YAML to CSS and saved to ${outputFilepath}`);
 }
-
-// Example usage
 
 compileYamlToCss(yamlFile, outputFile);
