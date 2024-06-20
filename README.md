@@ -32,45 +32,45 @@ This is a public JavaScript project that converts YAML styles to CSS. It allows 
 **Example YAML Structure:**
 
 ```yaml
-# Global styles
-body:
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 
-# Headings
+body:
+  font-family: Arial, sans-serif
+  margin: 0
+  padding: 0
+
 h1:
-  font-size: 2em;
-  margin-bottom: 0.5em;
+  font-size: 2em
+  margin-bottom: 0.5em
 
 h2:
-  font-size: 1.5em;
-  margin-bottom: 0.3em;
+  font-size: 1.5em
+  margin-bottom: 0.3em
 
-# Paragraphs
 p:
-  line-height: 1.5;
-  margin-bottom: 1em;
+  line-height: 1.5
+  margin-bottom: 1em
 
-# Links
 a:
-  color: #007bff;
-  text-decoration: none;
+  color: "#007bff"
+  text-decoration: none
 
-  &:hover:
-    color: #0056b3;
+a:hover:
+  text-decoration: underline
 
-# Buttons
 button:
-  background-color: #007bff;
-  color: white;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background-color: "#007bff"
+  color: white
+  padding: 0.5em 1em
+  border: none
+  border-radius: 4px
+  cursor: pointer
 
-  &:hover:
-    background-color: #0056b3;
+.special:
+  color: red
+  font-weight: bold
+
+.special:hover button:
+  background-color: green
 ```
 
 **License:**
