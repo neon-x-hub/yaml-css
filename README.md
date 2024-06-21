@@ -239,7 +239,7 @@ supports (display:grid):
     display: grid
 ```
 
-**SCSS:**
+**CSS/SCSS:**
 ```scss
 @supports (display: grid) {
   .grid-container {
@@ -285,7 +285,25 @@ nav {
   }
 }
 ```
-
+**CSS:**
+``` css
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav ul li {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 9999px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #3498db;
+  padding: 10px;
+  border: 1px solid #3498db;
+}
+```
 ### 12. Extend Selector - Inheritance (.nav-item)
 
 **YAML:**
@@ -312,6 +330,20 @@ nav {
 }
 ```
 
+**CSS:**
+```css
+/* Doesn't scale well!! */
+
+.nav-item {
+  background-color: #f5f5f5;
+}
+
+.base-style, .nav-item {
+  color: #3498db;
+  margin: 10px;
+}
+```
+
 ### 13. Looping through Colors (@each)
 
 **YAML:**
@@ -329,7 +361,20 @@ each $color in $colors:
   }
 }
 ```
+**CSS:**
+```css
+.color-red {
+  color: "red";
+}
 
+.color-green {
+  color: "green";
+}
+
+.color-blue {
+  color: "blue";
+}
+```
 ### 14. Conditional Statement (@if)
 
 **YAML:**
@@ -378,7 +423,30 @@ if $primary-color == '#3498db':
   }
 }
 ```
-
+**CSS:**
+```css
+.scss .font-size-1 {
+  font-size: "10px";
+}
+.scss .font-size-2 {
+  font-size: "20px";
+}
+.scss .font-size-3 {
+  font-size: "30px";
+}
+.scss .padding-1 {
+  padding: 10px;
+}
+.scss .padding-2 {
+  padding: 20px;
+}
+.scss .padding-3 {
+  padding: 30px;
+}
+.scss .padding-4 {
+  padding: 40px;
+}
+```
 **License:**
 
 MIT License
