@@ -92,8 +92,8 @@ mixins:
 ```yaml
 functions:
   tint:
-    params: [color, amount]
-    body: |
+    - [color, amount] # Params
+    - | # Body of the function
       @return mix(white, $color, $amount);
 ```
 
@@ -230,18 +230,21 @@ button {
 }
 ```
 
-### 10. Nested Selector with Pseudo-class (hover)
+### 10. Support for CSS @ Rules (e.g. @supports, @media ...etc)
 
 **YAML:**
 ```yaml
-.good:hover button:
-  background-color: green
+supports (display:grid):
+  .grid-container:
+    display: grid
 ```
 
 **SCSS:**
 ```scss
-.good:hover button {
-  background-color: green;
+@supports (display: grid) {
+  .grid-container {
+    display: grid;
+  }
 }
 ```
 
@@ -350,11 +353,11 @@ if $primary-color == '#3498db':
 **YAML:**
 ```yaml
 .scss:
-  for $i from 1..3:
+  for $i in 1..3:
     .font-size-#{$i}:
       font-size: nth($font-sizes, $i)
 
-  for $i from 1..4:
+  for $i in 1..4:
     .padding-#{$i}:
       padding: $i * 10px
 ```
