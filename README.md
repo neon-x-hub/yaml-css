@@ -66,11 +66,11 @@ $colors: (red, green, blue);
 ```yaml
 mixins:
   box:
-    padding: "$padding"
-    border: "1px solid $primary-color"
+    padding: $padding
+    border: 1px solid $primary-color
   chip:
-    padding: "$padding"
-    border-radius: "9999px"
+    padding: $padding
+    border-radius: 9999px
 ```
 
 **SCSS:**
@@ -109,15 +109,15 @@ functions:
 **YAML:**
 ```yaml
 body:
-  font-family: "Arial, sans-serif"
-  margin: "0"
-  padding: "0"
+  font-family: Arial, sans-serif
+  margin: 0
+  padding: 0
 ```
 
 **SCSS:**
 ```scss
 body {
-  font-family: "Arial, sans-serif";
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -128,12 +128,12 @@ body {
 **YAML:**
 ```yaml
 h1:
-  font-size: "2em"
-  margin-bottom: "0.5em"
+  font-size: 2em
+  margin-bottom: 0.5em
 
 h2:
-  font-size: "1.5em"
-  margin-bottom: "0.3em"
+  font-size: 1.5em
+  margin-bottom: 0.3em
 ```
 
 **SCSS:**
@@ -154,8 +154,8 @@ h2 {
 **YAML:**
 ```yaml
 p:
-  line-height: "1.5"
-  margin-bottom: "1em"
+  line-height: 1.5
+  margin-bottom: 1em
 ```
 
 **SCSS:**
@@ -172,9 +172,9 @@ p {
 ```yaml
 a:
   color: "#007bff"
-  text-decoration: "none"
+  text-decoration: none
   "&:hover":
-    text-decoration: "underline"
+    text-decoration: underline
 ```
 
 **SCSS:**
@@ -194,11 +194,11 @@ a {
 ```yaml
 button:
   background-color: "#007bff"
-  color: "white"
-  padding: "0.5em 1em"
-  border: "none"
-  border-radius: "4px"
-  cursor: "pointer"
+  color: white
+  padding: 0.5em 1em
+  border: none
+  border-radius: 4px
+  cursor: pointer
 ```
 
 **SCSS:**
@@ -218,8 +218,8 @@ button {
 **YAML:**
 ```yaml
 .special:
-  color: "red"
-  font-weight: "bold"
+  color: red
+  font-weight: bold
 ```
 
 **SCSS:**
@@ -235,7 +235,7 @@ button {
 **YAML:**
 ```yaml
 .good:hover button:
-  background-color: "green"
+  background-color: green
 ```
 
 **SCSS:**
@@ -251,15 +251,15 @@ button {
 ```yaml
 nav:
   ul:
-    margin: "0"
-    padding: "0"
-    list-style: "none"
+    margin: 0
+    padding: 0
+    list-style: none
     li:
-      display: "inline-block"
+      display: inline-block
       "@include": chip
       a:
-        text-decoration: "none"
-        color: "$primary-color"
+        text-decoration: none
+        color: $primary-color
         "@include": box
 ```
 
@@ -292,8 +292,8 @@ nav {
   background-color: "#f5f5f5"
 
 .base-style:
-  color: "$primary-color"
-  margin: "$padding"
+  color: $primary-color
+  margin: $padding
 ```
 
 **SCSS:**
@@ -314,8 +314,8 @@ nav {
 **YAML:**
 ```yaml
 "@each $color in $colors":
-  ".color-#{$color}":
-    color: "$color"
+  .color-#{$color}:
+    color: $color
 ```
 
 **SCSS:**
@@ -332,8 +332,8 @@ nav {
 **YAML:**
 ```yaml
 "@if $primary-color == '#3498db'":
-  ".primary-bg":
-    background-color: "$primary-color"
+  .primary-bg:
+    background-color: $primary-color
 ```
 
 **SCSS:**
@@ -351,25 +351,27 @@ nav {
 ```yaml
 .scss:
   "@for $i from 1..3":
-    ".font-size-#{$i}":
-      font-size: "nth($font-sizes, $i)"
+    .font-size-#{$i}:
+      font-size: nth($font-sizes, $i)
 
   "@for $i from 1..4":
-    ".padding-#{$i}":
-      padding: "$i * 10px"
+    .padding-#{$i}:
+      padding: $i * 10px
 ```
 
 **SCSS:**
 ```scss
-@for $i from 1 through 3 {
-  .font-size-#{$i} {
-    font-size: nth($font-sizes, $i);
+.scss {
+  @for $i from 1 through 3 {
+    .font-size-#{$i} {
+      font-size: nth($font-sizes, $i);
+    }
   }
-}
-
-@for $i from 1 through 4 {
-  .padding-#{$i} {
-    padding: $i * 10px;
+  
+  @for $i from 1 through 4 {
+    .padding-#{$i} {
+      padding: $i * 10px;
+    }
   }
 }
 ```
