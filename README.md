@@ -350,11 +350,11 @@ if $primary-color == '#3498db':
 **YAML:**
 ```yaml
 .scss:
-  for $i from 1..3:
+  for $i in 1..3:
     .font-size-#{$i}:
       font-size: nth($font-sizes, $i)
 
-  for $i from 1..4:
+  for $i in 1..4:
     .padding-#{$i}:
       padding: $i * 10px
 ```
