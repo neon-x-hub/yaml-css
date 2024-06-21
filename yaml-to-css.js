@@ -2,7 +2,7 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 
 
-export function yamlToScss(yamlObj, depth = 0) {
+function yamlToScss(yamlObj, depth = 0) {
   let scss = '';
   const indent = '  '.repeat(depth);
 
@@ -43,19 +43,19 @@ export function yamlToScss(yamlObj, depth = 0) {
     if (!['variables', 'mixins', 'functions'].includes(key)) {
       const value = yamlObj[key];
       if (typeof value === 'object') {
-        const extend = value['%extend'] ? `${indent}@extend .${value['%extend']};\n` : '';
-        delete value['%extend'];
+        const extend = value['extend'] ? `${indent}@extend .${value['extend']};\n` : '';
+        delete value['extend'];
 
-        if (key.startsWith('@each')) {
+        if (key.startsWith('each ')) {
           const [,variable, , list] = key.split(' ');
           const body = yamlToScss(yamlObj[key], depth + 1);
           scss += `${indent}@each ${variable} in ${list} {\n${body}${indent}}\n`;
-        } else if (key.startsWith('@for')) {
+        } else if (key.startsWith('for ')) {
           const [,variable, , range] = key.split(' ');
           const [start, end] = range.split('..');
           const body = yamlToScss(yamlObj[key], depth + 1);
           scss += `${indent}@for ${variable} from ${start} through ${end} {\n${body}${indent}}\n`;
-        } else if (key.startsWith('@if')) {
+        } else if (key.startsWith('if ')) {
           const condition = key.substring(3).trim();
           const body = yamlToScss(yamlObj[key], depth + 1);
           scss += `${indent}@if ${condition} {\n${body}${indent}}\n`;
@@ -63,8 +63,8 @@ export function yamlToScss(yamlObj, depth = 0) {
           scss += `${indent}${key} {\n${extend}${yamlToScss(value, depth + 1)}${indent}}\n`;
         }
       } else {
-        if (key.startsWith('@include')) {
-          scss += `${indent}${key.replace('@include', '@include ')}${value};\n`;
+        if (key.startsWith('include')) {
+          scss += `${indent}${key.replace('include', '@include ')}${value};\n`;
         } else {
           scss += `${indent}${key}: ${value};\n`;
         }

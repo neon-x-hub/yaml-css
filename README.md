@@ -256,11 +256,11 @@ nav:
     list-style: none
     li:
       display: inline-block
-      "@include": chip
+      include: chip
       a:
         text-decoration: none
         color: $primary-color
-        "@include": box
+        include: box
 ```
 
 **SCSS:**
@@ -288,7 +288,7 @@ nav {
 **YAML:**
 ```yaml
 .nav-item:
-  "%extend": base-style
+  extend: base-style
   background-color: "#f5f5f5"
 
 .base-style:
@@ -313,7 +313,7 @@ nav {
 
 **YAML:**
 ```yaml
-"@each $color in $colors":
+each $color in $colors:
   .color-#{$color}:
     color: $color
 ```
@@ -331,7 +331,7 @@ nav {
 
 **YAML:**
 ```yaml
-"@if $primary-color == '#3498db'":
+if $primary-color == '#3498db':
   .primary-bg:
     background-color: $primary-color
 ```
@@ -350,11 +350,11 @@ nav {
 **YAML:**
 ```yaml
 .scss:
-  "@for $i from 1..3":
+  for $i from 1..3:
     .font-size-#{$i}:
       font-size: nth($font-sizes, $i)
 
-  "@for $i from 1..4":
+  for $i from 1..4:
     .padding-#{$i}:
       padding: $i * 10px
 ```
