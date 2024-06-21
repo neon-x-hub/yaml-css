@@ -42,6 +42,7 @@ If any key or value strings in the YAML configuration contain special characters
 variables:
   primary-color: '#3498db'
   padding: '10px'
+  font-sizes: [10px, 20px, 30px]
   theme-colors:
     primary: '#3498db'
     secondary: '#2ecc71'
