@@ -1,10 +1,7 @@
 const yaml = require('js-yaml');
 
 function convertYamlToScss(inputFile) {
-
-    // Load YAML file
     const yamlObj = yaml.load(inputFile);
-
     function yamlToScss(yamlObj, depth = 0) {
         let scss = '';
         const indent = '  '.repeat(depth);
@@ -81,7 +78,6 @@ function convertYamlToScss(inputFile) {
 
         return scss;
     }
-
     function formatValue(value) {
         if (Array.isArray(value)) {
             return '(' + value.map(formatValue).join(', ') + ')';
@@ -91,8 +87,6 @@ function convertYamlToScss(inputFile) {
             return value;
         }
     }
-
-    // Convert YAML to SCSS
     const scssOutput = yamlToScss(yamlObj);
     return scssOutput;
 }
