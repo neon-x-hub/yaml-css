@@ -64,6 +64,7 @@ $colors: (red, green, blue);
 
 **YAML:**
 ```yaml
+# You can define a set of mixins
 mixins:
   box:
     padding: $padding
@@ -71,6 +72,10 @@ mixins:
   chip:
     padding: $padding
     border-radius: 9999px
+# Or you can define each mixin individually with the "mxn" keyword
+mxn box2:
+  padding: $padding
+  border: 1px solid $primaryColor
 ```
 
 **SCSS:**
@@ -90,11 +95,18 @@ mixins:
 
 **YAML:**
 ```yaml
+# You can define a set of functions
 functions:
-  tint:
+  darken:
     - [color, amount] # Params
-    - | # Body of the function
-      @return mix(white, $color, $amount);
+    - | # Body
+       @return mix(black, $color, $amount);
+
+# Or you can define each function individually with "func" keyword
+func lighten:
+  - [color, amount]
+  - |
+     @return mix(white, $color, $amount);
 ```
 
 **SCSS:**
