@@ -57,6 +57,7 @@ variables:
 ```scss
 $primary-color: #3498db;
 $padding: 10px;
+$font-sizes: (10px, 20px, 30px);
 $theme-colors: (primary: #3498db, secondary: #2ecc71, danger: #e74c3c);
 $colors: (red, green, blue);
 ```
@@ -85,10 +86,13 @@ mxn box2:
   padding: $padding;
   border: 1px solid $primary-color;
 }
-
 @mixin chip {
   padding: $padding;
   border-radius: 9999px;
+}
+@mixin box2 {
+  padding: $padding;
+  border: 1px solid $primaryColor;
 }
 ```
 
@@ -112,9 +116,15 @@ func lighten:
 
 **SCSS:**
 ```scss
-@function tint($color, $amount) {
-  @return mix(white, $color, $amount);
+@function darken ($color, $amount) {
+  @return mix(black, $color, $amount);
+  
 }
+@function lighten($color, $amount) {
+  @return mix(white, $color, $amount);
+  
+}
+
 ```
 
 ### 4. Body Styles

@@ -10,8 +10,9 @@ function yamlToScss(yamlObj, depth = 0) {
       const value = yamlObj[key];
 
       if (key === 'variables') {
-          for (const varName in value) {
-              scss += `${indent}$${varName}: ${value[varName]};\n`;
+        for (const varName in value) {
+            const varValue = formatValue(value[varName]);
+            scss += `${indent}$${varName}: ${varValue};\n`;
           }
       } else if (key === 'mixins') {
           for (const mixinName in value) {
@@ -78,7 +79,15 @@ function yamlToScss(yamlObj, depth = 0) {
   return scss;
 }
 
-
+function formatValue(value) {
+    if (Array.isArray(value)) {
+      return '(' + value.map(formatValue).join(', ') + ')';
+    } else if (typeof value === 'object' && value !== null) {
+      return '(' + Object.entries(value).map(([k, v]) => `${k}: ${formatValue(v)}`).join(', ') + ')';
+    } else {
+      return value;
+    }
+  }
 
 // Load YAML file
 const yamlFile = fs.readFileSync(process.argv[2], 'utf8');
