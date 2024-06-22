@@ -15,20 +15,20 @@ Welcome to our YamlCSS Framework, a user-friendly tool designed to simplify web 
 2. Install the required dependencies:
 
    ```bash
-   npm install
+   npm install -g https://github.com/neon-x-hub/yaml-to-css.git
    ```
 
 **Usage:**
 
 1. **Create a YAML file:** Define your styles in a YAML file (e.g., `styles.yaml`). Refer to the example structure below.
-2. **Run the script:** Execute the script using Node.js from the command line:
+2. **Run the script:** Execute the script using the command line:
 
    ```bash
-   node yaml-to-css.js styles.yaml styles.scss
+   yamlcss input.yaml output.scss
    ```
 
-   - Replace `styles.yaml` with your actual file name.
-   - Replace `styles.scss` with your desired output file name for the generated CSS/SCSS.
+   - Replace `input.yaml` with your actual file name.
+   - Replace `output.scss` with your desired output file name for the generated CSS/SCSS.
 
 ### Feature with some examples
 

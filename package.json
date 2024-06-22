@@ -1,15 +1,19 @@
 {
-  "name": "css-yaml",
+  "name": "yamlcss",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Convert YAML to CSS or SCSS via a command line tool",
+  "main": "src/index.js",
+  "bin": {
+    "yamlcss": "./bin/cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "neon-x-hub",
+  "license": "MIT",
   "dependencies": {
+    "commander": "^12.1.0",
     "js-yaml": "^4.1.0",
     "sass": "^1.77.6"
   }
