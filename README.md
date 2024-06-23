@@ -15,10 +15,10 @@ Welcome to our YamlCSS Framework, a user-friendly tool designed to simplify web 
 **Installation:**
 
 1. Clone this repository or download the zip file.
-2. Install the required dependencies:
+Or Install globally via a package manager:
 
    ```bash
-   npm install -g https://github.com/neon-x-hub/yaml-to-css.git
+   npm install -g https://github.com/neon-x-hub/yaml-css.git
    ```
 
 **Usage:**
