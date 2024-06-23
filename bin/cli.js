@@ -9,7 +9,7 @@ const { Command } = require('commander');
 const program = new Command();
 
 program
-  .name('yamlcss')
+  .name('ycss')
   .description('Convert YAML to SCSS or CSS')
   .version('1.0.0')
   .argument('<inputFile>', 'Input YAML file')

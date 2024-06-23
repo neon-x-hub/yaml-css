@@ -4,7 +4,7 @@
   "description": "Convert YAML to CSS or SCSS via a command line tool",
   "main": "src/index.js",
   "bin": {
-    "yamlcss": "./bin/cli.js"
+    "ycss": "./bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

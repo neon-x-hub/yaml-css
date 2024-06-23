@@ -27,7 +27,7 @@ Or Install globally via a package manager:
 2. **Run the script:** Execute the script using the command line:
 
    ```bash
-   yamlcss input.yaml output.scss
+   ycss input.yaml output.scss
    ```
 
    - Replace `input.yaml` with your actual file name.
