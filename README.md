@@ -130,74 +130,28 @@ func lighten:
 
 ```
 
-### 4. Body Styles
-
-**YAML:**
-```yaml
-body:
-  font-family: Arial, sans-serif
-  margin: 0
-  padding: 0
-```
-
-**SCSS:**
-```scss
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-```
-
-### 5. Heading Styles (h1, h2)
+### 4. Styles By Tag, Classes and IDs
 
 **YAML:**
 ```yaml
 h1:
-  font-size: 2em
-  margin-bottom: 0.5em
+  font-size: 24px
+  font-weight: bold
+  color: green
+  "&:hover":
+    color: blue
 
-h2:
-  font-size: 1.5em
-  margin-bottom: 0.3em
-```
+.class :
+  color: red
+  font-size: 16px
+  font-weight: bold
+  text-decoration: underline
+  "&:before" :
+    color: blue
 
-**SCSS:**
-```scss
-h1 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  font-size: 1.5em;
-  margin-bottom: 0.3em;
-}
-```
-
-### 6. Paragraph Styles (p)
-
-**YAML:**
-```yaml
-p:
-  line-height: 1.5
-  margin-bottom: 1em
-```
-
-**SCSS:**
-```scss
-p {
-  line-height: 1.5;
-  margin-bottom: 1em;
-}
-```
-
-### 7. Link Styles (a)
-
-**YAML:**
-```yaml
-a:
-  color: "#007bff"
+"#id":
+  color: blue
+  font-weight: bold
   text-decoration: none
   "&:hover":
     text-decoration: underline
@@ -205,8 +159,26 @@ a:
 
 **SCSS:**
 ```scss
-a {
-  color: #007bff;
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: green;
+  &:hover {
+    color: blue;
+  }
+}
+.class {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+  &:before {
+    color: blue;
+  }
+}
+#id {
+  color: blue;
+  font-weight: bold;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -214,49 +186,39 @@ a {
 }
 ```
 
-### 8. Button Styles (button)
-
-**YAML:**
-```yaml
-button:
-  background-color: "#007bff"
-  color: white
-  padding: 0.5em 1em
-  border: none
-  border-radius: 4px
-  cursor: pointer
-```
-
-**SCSS:**
-```scss
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-```
-
-### 9. Special Class (.special)
-
-**YAML:**
-```yaml
-.special:
-  color: red
-  font-weight: bold
-```
-
-**SCSS:**
-```scss
-.special {
-  color: red;
+**CSS:**
+```css
+h1 {
+  font-size: 24px;
   font-weight: bold;
+  color: green;
+}
+h1:hover {
+  color: blue;
+}
+
+.class {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.class:before {
+  color: blue;
+}
+
+#id {
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+#id:hover {
+  text-decoration: underline;
 }
 ```
 
-### 10. Support for CSS @ Rules (e.g. @supports, @media ...etc)
+### 5. Support for CSS @ Rules (e.g. @supports, @media ...etc)
+Supported tags are 'media', 'font-face', 'keyframes', 'supports', 'document', 'page', 'namespace'
 
 **YAML:**
 ```yaml
@@ -273,8 +235,21 @@ supports (display:grid):
   }
 }
 ```
+### 6. The @use Sass rule
+**YAML:**
+```yaml
+use:
+  - sass:map
+  - m: sass:math
+```
 
-### 11. Nested Selector with Mixin (nav ul li a)
+**SCSS**
+```scss
+@use 'sass:map';
+@use 'sass:math' as m;
+```
+
+### 7. Nested Selector with Mixin (nav ul li a)
 
 **YAML:**
 ```yaml
@@ -330,7 +305,7 @@ nav ul li a {
   border: 1px solid #3498db;
 }
 ```
-### 12. Extend Selector - Inheritance (.nav-item)
+### 8. Extend Selector - Inheritance (.nav-item)
 
 **YAML:**
 ```yaml
@@ -370,13 +345,18 @@ nav ul li a {
 }
 ```
 
-### 13. Looping through Colors (@each)
+### 9. Looping through Colors (@each)
 
 **YAML:**
 ```yaml
 each $color in $colors:
   .color-#{$color}:
     color: $color
+
+each $color $value in $theme-colors: # With maps
+  .text-#{$color}:
+    color: $value
+
 ```
 
 **SCSS:**
@@ -384,6 +364,12 @@ each $color in $colors:
 @each $color in $colors {
   .color-#{$color} {
     color: $color;
+  }
+}
+
+@each $color, $value in $theme-colors { // With maps
+  .text-#{$color} {
+    color: $value;
   }
 }
 ```
@@ -400,21 +386,59 @@ each $color in $colors:
 .color-blue {
   color: "blue";
 }
+
+/* With maps */
+
+.text-primary {
+  color: #3498db;
+}
+
+.text-secondary {
+  color: #2ecc71;
+}
+
+.text-danger {
+  color: #e74c3c;
+}
+
 ```
-### 14. Conditional Statement (@if)
+### 14. Conditional Statements (@if, @else if, @else)
 
 **YAML:**
 ```yaml
-if $primary-color == '#3498db':
-  .primary-bg:
-    background-color: $primary-color
+if $theme == 'dark':
+  body:
+    background-color: black
+    color: white
+
+elif $theme == 'light':
+  body:
+    background-color: white
+    color: black
+else:
+  body:
+    background-color: green
+    color: red
 ```
 
 **SCSS:**
 ```scss
-@if $primary-color == '#3498db' {
-  .primary-bg {
-    background-color: $primary-color;
+@if $theme == 'dark' {
+  body {
+    background-color: black;
+    color: white;
+  }
+}
+@else if $theme == 'light' {
+  body {
+    background-color: white;
+    color: black;
+  }
+}
+@else {
+  body {
+    background-color: green;
+    color: red;
   }
 }
 ```
