@@ -503,6 +503,4 @@ MIT License
 
 **Contributing:**
 
-This is my first public repository.
-
 We welcome contributions to this project! Feel free to fork the repository, make changes, and submit pull requests.
